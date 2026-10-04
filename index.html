@@ -16,7 +16,16 @@
       overflow: hidden;
       background-color: #f7e8ef;
     }
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -24,6 +33,8 @@
   </style>
 </head>
 <body>
-  <iframe src="https://www.canva.com/design/DAHXErSs0ss/r9tLAHXb-buO1YebFeClfQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+  <div class="iframe-container">
+    <iframe src="https://www.canva.com/design/DAHXErSs0ss/r9tLAHXb-buO1YebFeClfQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+  </div>
 </body>
 </html>
