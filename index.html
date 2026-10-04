@@ -21,8 +21,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      /* Aumenta a altura do iframe e empurra a barra inferior para fora da tela */
-      height: calc(100% + 50px);
+      /* Altura estendida para jogar a barra inferior do Canva para fora da tela */
+      height: calc(100% + 90px);
       overflow: hidden;
     }
     iframe {
@@ -34,7 +34,12 @@
 </head>
 <body>
   <div class="iframe-container">
-    <iframe src="https://www.canva.com/design/DAHXErSs0ss/r9tLAHXb-buO1YebFeClfQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+    <iframe 
+      loading="lazy" 
+      src="https://www.canva.com/design/DAHXErSs0ss/r9tLAHXb-buO1YebFeClfQ/view?embed" 
+      allowfullscreen="allowfullscreen" 
+      allow="fullscreen">
+    </iframe>
   </div>
 </body>
 </html>
