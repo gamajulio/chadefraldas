@@ -29,16 +29,52 @@
       height: 100%;
       border: none;
     }
+    /* Camada transparente sobre a capa para capturar o primeiro toque */
+    #overlay-audio {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: transparent;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Camada invisível que deteta o clique na capa -->
+  <div id="overlay-audio"></div>
+
+  <!-- Ficheiro de Áudio -->
+  <audio id="meuAudio" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Canva Embed -->
   <div class="iframe-container">
     <iframe 
       loading="lazy" 
       src="https://www.canva.com/design/DAHXErSs0ss/r9tLAHXb-buO1YebFeClfQ/view?embed" 
-      allow="autoplay; encrypted-media; fullscreen" 
-      allowfullscreen="allowfullscreen">
+      allowfullscreen="allowfullscreen" 
+      allow="fullscreen">
     </iframe>
   </div>
+
+  <script>
+    const overlay = document.getElementById('overlay-audio');
+    const audio = document.getElementById('meuAudio');
+
+    // Ao tocar em qualquer lugar da capa (Página 1), inicia o som e remove a camada
+    overlay.addEventListener('click', function() {
+      audio.play().then(() => {
+        // Esconde a camada para permitir a interação normal com o Canva
+        overlay.style.display = 'none';
+      }).catch(err => {
+        console.log("Erro ao reproduzir áudio:", err);
+      });
+    });
+  </script>
 </body>
 </html>
